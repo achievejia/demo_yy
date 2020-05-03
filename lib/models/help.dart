@@ -28,6 +28,15 @@ class Help {
     userpic = json['userpic'];
     type = json['type'];
     title = json['title'];
-    resourceid = 
+    resourceid = json['resourceid'];
+    dateline = json['dateline'];
+    lastOpenTime = json['last_open_time'];
+    statusCn = json['status_cn'];
+    groupName = json['group_name'];
+    hid = json['hid'];
+    nickname = json['nickname'];
+    commentsCount = json['comments_count'];
+    status = json['status'];
+    views = json['views'];
   }
 }

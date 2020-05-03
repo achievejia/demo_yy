@@ -43,7 +43,7 @@ class Comment {
 
 /// 资源信息
 class ResourceInfo {
-  String cname;
+  String cnname;
   String enname;
   String itemupdate;
   String id;
@@ -53,11 +53,11 @@ class ResourceInfo {
   String posterS;
 
   /// 资源信息构造函数
-  ResourceInfo({this.cname, this.enname, this.itemupdate, this.id, this.poster, this.posterM, this.posterB, this.posterS});
+  ResourceInfo({this.cnname, this.enname, this.itemupdate, this.id, this.poster, this.posterM, this.posterB, this.posterS});
 
   /// 资源信息Json格式化
   ResourceInfo.fromJson(Map<String, dynamic> json) {
-    cname = json['cname'];
+    cnname = json['cnname'];
     enname = json['enname'];
     itemupdate = json['itemupdate'];
     id = json['id'];
