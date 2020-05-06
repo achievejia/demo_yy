@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yy_demo/api/api.dart';
 import 'package:yy_demo/models/article_comment.dart';
+import 'package:yy_demo/widgets/comment_bar.dart';
+import 'package:yy_demo/widgets/comment_listtile.dart';
+import 'package:yy_demo/widgets/main.dart';
 
 class CommentPage extends StatefulWidget {
   final String id;
@@ -32,7 +36,72 @@ class _CommentPageState extends State<CommentPage> {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(bottom: 50.0),
-              child: ,
+              child: FutureBuilder<List<ArticleComment>>(
+                future: Networking.fetchArticleComments(
+                  id: widget.id,
+                  channel: widget.channel
+                ),
+                builder: (BuildContext context, AsyncSnapshot<List<ArticleComment>> snapshot) {
+                  if (snapshot.hasData) {
+                    bool hasComment  = snapshot.data.length > 0;
+                    return hasComment ? ListView.separated(
+                      itemBuilder: (context, index) {
+                        final item = snapshot.data[index];
+                        final hasReplys = item.replys.length > 0;
+                        List<Widget> children = [
+                          CommentListTile(
+                            avatar: item.userpic,
+                            nickName: item.nickname,
+                            dateline: item.dateline,
+                            groupName: item.groupName,
+                            content: item.content,
+                          )
+                        ];
+                        if (hasReplys) {
+                          children.addAll(_buildReplys(item.replys));
+                        }
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              replayName = item.nickname;
+                            });
+                          },
+                          child: Column(children: children),
+                        );
+                      }, 
+                      separatorBuilder: (context, index) {
+                        return Divider(
+                          height: 5.0,
+                          color: Colors.grey[200],
+                        );
+                      }, 
+                      itemCount: snapshot.data.length,
+                    )
+                    : FractionallySizedBox(
+                      heightFactor: 1.0,
+                      child: EmptyView(
+                        title: "还没有评论哦.",
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return FractionallySizedBox(
+                      heightFactor: 1.0,
+                      child: EmptyView(
+                        title: "出错啦：\n${snapshot.error.toString()}",
+                      ),
+                    );
+                  }
+                  return Center(child: CircularProgressIndicator());
+                },
+              ),
+            ),
+            Positioned(
+              bottom: 0.0,
+              left: 0.0,
+              right: 0.0,
+              child: CommentBar(
+                replayName: replayName,
+              ),
             )
           ],
         ),
