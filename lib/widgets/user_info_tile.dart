@@ -38,7 +38,7 @@ class UserInfoTile extends StatelessWidget {
           Text(nickName),
           Text(
             time,
-            style: Theme.of(context).textTheme.body2,
+            style: Theme.of(context).textTheme.bodyText2,
           )
         ],
       ),

@@ -67,7 +67,7 @@ class ArticleView extends StatelessWidget {
                         vm.title,
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.display1,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                     ),
               Padding(
@@ -76,7 +76,7 @@ class ArticleView extends StatelessWidget {
                   vm.content,
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.body1,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
               Container(

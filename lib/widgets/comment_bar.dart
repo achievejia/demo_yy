@@ -18,7 +18,7 @@ class CommentBar extends StatelessWidget {
               color: Colors.black
             ),
             decoration: InputDecoration(
-              hintText: "回复：${replayName}",
+              hintText: "回复：$replayName",
               border: InputBorder.none,
               filled: true,
               fillColor: Colors.grey[200],

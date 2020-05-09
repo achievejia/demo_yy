@@ -25,7 +25,7 @@ class GridMenuItem extends StatelessWidget {
               child: Text(
                 menu.title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.body2,
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             )
           ],

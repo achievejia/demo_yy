@@ -25,10 +25,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Colors.black,
           textTheme: TextTheme(
-            body1: TextStyle(fontSize: 15.0, color: Colors.black87),
-            body2: TextStyle(fontSize: 13.0, color: Colors.grey),
+            bodyText1: TextStyle(fontSize: 15.0, color: Colors.black87),
+            bodyText2: TextStyle(fontSize: 13.0, color: Colors.grey),
             caption: TextStyle(fontSize: 10.0, color: Colors.grey),
-            display1: TextStyle(
+            headline1: TextStyle(
               fontSize: 14.0,
               color: Colors.black87,
               fontWeight: FontWeight.bold

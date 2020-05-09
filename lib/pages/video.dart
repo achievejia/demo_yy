@@ -63,7 +63,7 @@ class _VideoPageState extends State<VideoPage>
                   SliverOverlapAbsorber(
                     handle: NestedScrollView
                         .sliverOverlapAbsorberHandleFor(context),
-                    child: StoreConnector<VideoState, VideoViewModel>(
+                    sliver: StoreConnector<VideoState, VideoViewModel>(
                         converter: (store) => VideoViewModel(store),
                         builder: (context, vm) {
                           return SliverAppBar(

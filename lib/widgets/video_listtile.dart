@@ -67,15 +67,15 @@ class VideoListTile extends StatelessWidget {
                       ),
                       Text(
                         resource.category,
-                        style: Theme.of(context).textTheme.body2,
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                       Text(
                         resource.playStatus,
-                        style: Theme.of(context).textTheme.body2,
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                       Text(
                         date,
-                        style: Theme.of(context).textTheme.body2,
+                        style: Theme.of(context).textTheme.bodyText2,
                         maxLines: 1,
                       ),
                     ],
